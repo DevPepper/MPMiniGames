@@ -29,7 +29,7 @@ public class ChatManager {
 	//Show Debug Message
 	public void debugMessage(String debugMsg) {
 		if(MPMGMain.isDebugMessages() == true) {
-			Bukkit.broadcastMessage(ChatColor.RED + "" + ChatColor.BOLD + "  Debug>>  " + debugMsg);
+			Bukkit.broadcastMessage(ChatColor.RED + "" + ChatColor.BOLD + "  <<Debug>>  " + debugMsg);
 		}
 	}
 	
