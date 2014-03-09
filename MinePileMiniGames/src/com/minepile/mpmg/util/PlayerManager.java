@@ -5,7 +5,7 @@ import org.bukkit.scoreboard.Scoreboard;
 
 public class PlayerManager {
 	
-	//Imports
+	//Load objects
 	private Player player;
 	private Scoreboard scoreboard = null;
 	

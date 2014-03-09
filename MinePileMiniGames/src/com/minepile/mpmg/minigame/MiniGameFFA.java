@@ -2,6 +2,9 @@ package com.minepile.mpmg.minigame;
 
 import org.bukkit.Bukkit;
 import org.bukkit.World;
+import org.bukkit.entity.Player;
+
+import com.minepile.mpmg.util.CountDownManager;
 
 public class MiniGameFFA extends MiniGame {
 
@@ -39,5 +42,8 @@ public class MiniGameFFA extends MiniGame {
 		chatManager.debugMessage(getMiniGameDescription());
 		chatManager.debugMessage(getWorldAuthor());
 		
+		//Lets try doing a count down
+		CountDownManager countDownManager = new CountDownManager();
+		countDownManager.startCountDown();
 	}
 }

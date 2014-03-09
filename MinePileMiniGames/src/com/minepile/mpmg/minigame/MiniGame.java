@@ -6,7 +6,7 @@ import com.minepile.mpmg.util.ChatManager;
 
 public class MiniGame {
 
-	//Import utilities
+	//Load objects
 	ChatManager chatManager = new ChatManager();
 
 	//Variables that Make a MiniGame

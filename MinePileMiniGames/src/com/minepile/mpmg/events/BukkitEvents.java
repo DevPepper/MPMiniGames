@@ -9,10 +9,11 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 
 import com.minepile.mpmg.MPMGMain;
 import com.minepile.mpmg.util.ChatManager;
+import com.minepile.mpmg.util.CountDownManager;
 
 public class BukkitEvents implements Listener {
 	
-	//Import utilities
+	//Load objects
 	MPMGMain plugin;
 	private ChatManager chatManager = new ChatManager();
 	private PlayerJoinMiniGameEvent playerJoinMGEvent = new PlayerJoinMiniGameEvent();

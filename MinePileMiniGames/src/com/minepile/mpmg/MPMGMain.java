@@ -11,12 +11,15 @@ public class MPMGMain extends JavaPlugin {
 	//Server Variables
 	private static String pluginVersion = "Pre-Alpha 0.1.3";
 	private static boolean debugMessages = true;
+	public static MPMGMain plugin;
 	
-	//Imports
+	//Load objects
 	private MiniGame miniGameFFA = new MiniGameFFA();
 	
 	//Plugin is being enabled, lets do something.
 	public void onEnable() {
+		plugin = this;
+		
 		//Register BukkitEvent listener class
 		new BukkitEvents(this);
 		
