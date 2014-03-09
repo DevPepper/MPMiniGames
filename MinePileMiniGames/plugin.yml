@@ -1,0 +1,4 @@
+name: MinePileMiniGames
+main: com.minepile.mpmg.MPMGMain
+version: 0.1
+description: MinePile mini-games
