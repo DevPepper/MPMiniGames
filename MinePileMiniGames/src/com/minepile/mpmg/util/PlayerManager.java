@@ -1,13 +1,11 @@
 package com.minepile.mpmg.util;
 
 import org.bukkit.entity.Player;
-import org.bukkit.scoreboard.Scoreboard;
 
 public class PlayerManager {
 	
 	//Load objects
 	private Player player;
-	private Scoreboard scoreboard = null;
 	
 	//Player statistics
 	private int kills = 0;				//Total player kills

@@ -3,8 +3,6 @@ package com.minepile.mpmg.minigame;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 
-import com.minepile.mpmg.util.CountDownManager;
-
 public class MiniGameFFA extends MiniGame {
 
 	//Variables that Make a MiniGame

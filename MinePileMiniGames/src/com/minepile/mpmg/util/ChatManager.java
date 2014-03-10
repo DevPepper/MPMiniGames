@@ -42,7 +42,7 @@ public class ChatManager {
 	//Color Count down
 	public void colorCountDown (int timeCount) {
 		String timeCountString = Integer.toString(timeCount);		
-		if (timeCount == 60 || timeCount == 30 || timeCount == 15) { //Show bold green countdown at 60, 30, and 15 seconds.
+		if (timeCount == 60 ||timeCount == 45 || timeCount == 30 || timeCount == 15) { //Show countdown at 60, 45, 30, and 15 seconds.
 			Bukkit.broadcastMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "Countdown: " + timeCountString + " seconds left!");
 		} else if (timeCount <= 10 && timeCount >= 3) { //Show bold green countdown for ever second between 10 and 3 seconds.
 			Bukkit.broadcastMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "Countdown: " + timeCountString + " seconds left!");
@@ -51,7 +51,8 @@ public class ChatManager {
 		} else if (timeCount == 1) { //Show bold red countDown for 1 second left.
 			Bukkit.broadcastMessage(ChatColor.RED + "" + ChatColor.BOLD + "Countdown: " + timeCountString + " second left!");
 		} else {
-			//do not show zero
+			//Want to see all the numbers? Uncomment the line below
+			//debugMessage(timeCountString);
 		}
 	}
 }
