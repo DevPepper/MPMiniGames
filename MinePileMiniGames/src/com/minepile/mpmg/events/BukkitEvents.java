@@ -14,9 +14,9 @@ import com.minepile.mpmg.util.CountDownManager;
 public class BukkitEvents implements Listener {
 	
 	//Load objects
-	MPMGMain plugin;
+	static MPMGMain plugin = MPMGMain.plugin;
 	private ChatManager chatManager = new ChatManager();
-	private PlayerJoinMiniGameEvent playerJoinMGEvent = new PlayerJoinMiniGameEvent();
+	private PlayerJoinServerEvent playerJoinServerEvent = new PlayerJoinServerEvent();
 	
 	public BukkitEvents(MPMGMain plugin) {
 		this.plugin = plugin;
@@ -31,7 +31,7 @@ public class BukkitEvents implements Listener {
 		chatManager.debugMessage("PlayerJoinEvent fired");
 		
 		//Toggle player join minigame event!
-		playerJoinMGEvent.togglePlayerJoinMiniGameEvent(player);
+		playerJoinServerEvent.togglePlayerJoinServerEvent(player);
 	}
 	
 	//PlayerJoinEvent fired when someone leaves/quits the server

@@ -5,25 +5,21 @@ import org.bukkit.World;
 
 import com.minepile.mpmg.util.CountDownManager;
 
-public class MiniGameFFA extends MiniGame {
-
+public class MiniGameLobby extends MiniGame {
 	//Variables that Make a MiniGame
 	private String[] kits = {"Kit 1"};
-	private String[] teams = {"Red", "Blue"};
-	private World world = Bukkit.getWorld("Map01");
+	private String[] teams = {"Player"};
+	private World world = Bukkit.getWorld("world");
 	
 	//Variables to give user info
-	private String miniGameName = "Free For All";
-	private String miniGameDescription = "Last player alive wins!";
-	private String worldAuthor = "unenergizer";
+	private String miniGameName = "Lobby";
+	private String miniGameDescription = "";
+	private String worldAuthor = "";
 	
 	//Define constructor instructions
-	public MiniGameFFA() {}
+	public MiniGameLobby() {}
 	
 	public void loadMiniGame() {
-		//Debug Message
-		chatManager.debugMessage("The loadMiniGame() method invoked");
-		
 		//Setup FFA MiniGame
 		setKits(kits);
 		setTeams(teams);

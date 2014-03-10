@@ -3,8 +3,7 @@ package com.minepile.mpmg;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.minepile.mpmg.events.BukkitEvents;
-import com.minepile.mpmg.minigame.MiniGame;
-import com.minepile.mpmg.minigame.MiniGameFFA;
+import com.minepile.mpmg.util.GameManager;
 
 public class MPMGMain extends JavaPlugin {
 	
@@ -14,7 +13,7 @@ public class MPMGMain extends JavaPlugin {
 	public static MPMGMain plugin;
 	
 	//Load objects
-	private MiniGame miniGameFFA = new MiniGameFFA();
+	private GameManager gameManager = new GameManager();
 	
 	//Plugin is being enabled, lets do something.
 	public void onEnable() {
@@ -24,16 +23,10 @@ public class MPMGMain extends JavaPlugin {
 		new BukkitEvents(this);
 		
 		//Start Core logic of MiniGame
-		startMiniGameLoop();
+		gameManager.startGameManager();
 	}
 	
 	public void onDisable() {}
-	
-	//Start Game Loop!
-	private void startMiniGameLoop() {
-		//Load MiniGame
-		miniGameFFA.loadMiniGame();
-	}
 	
 	//Used in Chat Manager
 	public static String getPluginVersion() {

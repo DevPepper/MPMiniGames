@@ -7,7 +7,6 @@ import org.bukkit.entity.Player;
 
 public class ConnectionManager {
 	
-	private int playerCount = 0;
 	private ArrayList<String> playerList = null;
 	
 	//Get playerList
@@ -20,23 +19,16 @@ public class ConnectionManager {
 		for(Player allPlayers : Bukkit.getServer().getOnlinePlayers()) {
 			playerList.add(allPlayers.getName());
 		}
-		//update playerCount
-		setPlayerCount();
 	}
 	
 	//Remove disconnected player from []playerList
 	public void removePlayer() {
 		//remove player from the playerList
 	}
-	
-	//Count the number of players online
-	public void setPlayerCount() {
-		playerCount = playerList.size();
-	}
-	
+		
 	//Get the number of players online
 	public int getPlayerCount() {
-		return playerCount;
+		return Bukkit.getOnlinePlayers().length;
 	}
 	
 	//Get players online
