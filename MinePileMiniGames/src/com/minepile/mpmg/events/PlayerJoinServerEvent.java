@@ -1,5 +1,6 @@
 package com.minepile.mpmg.events;
 
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
 import com.minepile.mpmg.util.ChatManager;
@@ -16,13 +17,16 @@ public class PlayerJoinServerEvent {
 		playerManager.MiniGamePlayer(player);
 		
 		//Get world that is being played on (lobby or game world)
-		/*
+		
 		//Send Welcome Message
 		String playerName = player.getName();
 		chatManager.debugMessage(playerName + " joined");
 		playerManager.sendMessage(chatManager.welcomeMessage(playerName));
 		playerManager.sendMessage(chatManager.serverVersion());
-		*/
+		
+		//play a sound
+	    org.bukkit.Location location = player.getLocation();
+		player.playSound(location, Sound.LEVEL_UP, 1, 10);
 	}
 	
 }
