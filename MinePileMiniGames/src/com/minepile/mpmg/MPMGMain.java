@@ -3,6 +3,7 @@ package com.minepile.mpmg;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.minepile.mpmg.events.BukkitEvents;
+import com.minepile.mpmg.util.CountDownManager;
 import com.minepile.mpmg.util.GameManager;
 
 public class MPMGMain extends JavaPlugin {
@@ -10,9 +11,9 @@ public class MPMGMain extends JavaPlugin {
 	//Server Variables
 	private static String pluginVersion = "Pre-Alpha 0.1.3";
 	private static boolean debugMessages = true;
-	public static MPMGMain plugin;
 	
 	//Load objects
+	public static MPMGMain plugin;
 	private GameManager gameManager = new GameManager();
 	
 	//Plugin is being enabled, lets do something.
@@ -21,6 +22,7 @@ public class MPMGMain extends JavaPlugin {
 		
 		//Register BukkitEvent listener class
 		new BukkitEvents(this);
+		new CountDownManager(this);
 		
 		//Start Core logic of MiniGame
 		gameManager.startGameManager();

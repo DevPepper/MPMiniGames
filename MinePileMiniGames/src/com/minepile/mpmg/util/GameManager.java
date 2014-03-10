@@ -15,8 +15,8 @@ public class GameManager {
 	
 	
 	//Load Objects
-	private static MPMGMain plugin = MPMGMain.plugin;
 	private ChatManager chatManager = new ChatManager();
+	private CountDownManager countDownManager = new CountDownManager(null);
 	
 	//Lets start the core logic of our game
 	public void startGameManager() {
@@ -33,7 +33,7 @@ public class GameManager {
 				countDownManager.startCountDown();
 			}
 			*/
-			startCountDown();
+			countDownManager.startCountDown();
 			//set gameActive True
 		}
 		
@@ -47,50 +47,6 @@ public class GameManager {
 			gameCount++; //Increment the amount of games played.
 		}
 
-	}
-	
-	//Countdown
-	public void startCountDown() {
-		//If timeCount is not 60 when this method is called,
-		//lets reset it, so it is. This is a 60 second countdown.
-		if(timeCount != 60) {
-			timeCount = 60;
-		}
-		
-		//Lets start a repeating task
-		Bukkit.getScheduler().runTaskTimer(plugin, new Runnable() {
-			@Override
-			public void run() {
-				chatManager.colorCountDown(timeCount);
-				timeCount--;
-				if (timeCount < 0) {
-					timeCount = 60;
-				}
-			}
-			
-		}, 0, 20); //(20 ticks = 1 second)
-	}
-	
-	//Lobby Loop
-	public void lobbyTaskLoop() {		
-		//Lets start a repeating task
-		Bukkit.getScheduler().runTaskTimer(plugin, new Runnable() {
-			@Override
-			public void run() {
-				//do something
-			}
-		}, 0, 20); //(20 ticks = 1 second)
-	}
-	
-	//Game Loop
-	public void gameTaskLoop() {		
-		//Lets start a repeating task
-		Bukkit.getScheduler().runTaskTimer(plugin, new Runnable() {
-			@Override
-			public void run() {
-				//do something
-			}
-		}, 0, 20); //(20 ticks = 1 second)
 	}
 	
 	//Getters and Setters

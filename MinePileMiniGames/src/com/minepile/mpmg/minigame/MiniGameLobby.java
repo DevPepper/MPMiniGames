@@ -27,9 +27,5 @@ public class MiniGameLobby extends MiniGame {
 		setMiniGameName(miniGameName);
 		setMiniGameDescription(miniGameDescription);
 		setWorldAuthor(worldAuthor);
-		
-		//Lets try doing a count down
-		CountDownManager countDownManager = new CountDownManager();
-		countDownManager.startCountDown();
 	}
 }

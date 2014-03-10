@@ -14,7 +14,7 @@ import com.minepile.mpmg.util.CountDownManager;
 public class BukkitEvents implements Listener {
 	
 	//Load objects
-	static MPMGMain plugin = MPMGMain.plugin;
+	MPMGMain plugin = MPMGMain.plugin;
 	private ChatManager chatManager = new ChatManager();
 	private PlayerJoinServerEvent playerJoinServerEvent = new PlayerJoinServerEvent();
 	

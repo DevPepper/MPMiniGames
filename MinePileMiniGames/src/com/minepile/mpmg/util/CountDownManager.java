@@ -13,6 +13,10 @@ public class CountDownManager {
 	//Create Variables
 	private int timeCount = 60 ; //(20 ticks = 1 second)
 	
+	public CountDownManager(MPMGMain plugin) {
+		this.plugin = plugin;
+	}
+	
 	//Countdown
 	public void startCountDown() {
 		//If timeCount is not 60 when this method is called,
