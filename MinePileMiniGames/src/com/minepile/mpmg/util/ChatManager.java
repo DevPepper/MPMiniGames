@@ -39,6 +39,19 @@ public class ChatManager {
 				ChatColor.BOLD + "MinePile MiniGames version: " + MPMGMain.getPluginVersion();
 	}
 	
+	//Shows users as they login
+	public String playerJoinMessage(String playerName, int playerCount) {
+		return ChatColor.GREEN + " + " + ChatColor.GRAY + playerName + 
+				" joined the game. (" + playerCount + "/" + MPMGMain.getMaxPlayers() +  ")";
+	}
+	
+	//Shows users as they logout
+	public String playerQuitMessage(String playerName, int playerCount) {
+		return ChatColor.RED + " - " + ChatColor.GRAY + playerName + 
+				" left the game. (" + (playerCount - 1) + "/" + MPMGMain.getMaxPlayers() +  ")";
+	}
+	
+	
 	//Color Count down
 	public void colorCountDown (int timeCount) {
 		String timeCountString = Integer.toString(timeCount);		

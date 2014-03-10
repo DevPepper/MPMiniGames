@@ -9,14 +9,34 @@ public class ScheduleManager {
 	//Load objects
 	private static MPMGMain plugin = MPMGMain.plugin;
 	private ChatManager chatManager = new ChatManager();
+	private ConnectionManager connectionManager = new ConnectionManager();
+	private GameManager gameManager;
 	
 	//Create Variables
-	private int ticksPerSecond = 20;
+	private int ticksPerSecond = 20; //(20 ticks = 1 second)
 	private int taskID = -1;
-	private int timeCount = 0;
+	private int timeCountDownCount = 0;
 	
+	@SuppressWarnings("static-access")
 	public ScheduleManager(MPMGMain plugin) {
 		this.plugin = plugin;
+	}
+
+	//Run Game Manager Tasks
+	public void gameManagerTask() {
+		//Lets start a repeating task
+		taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
+			@Override
+			public void run() {
+				//Show player count
+				int playerCount = connectionManager.getPlayerCount();
+				
+				if (playerCount >= MPMGMain.getMinPlayers()) {
+					//trigger countdown
+					gameManager.startLobbyCountDown(); //This causes bugs
+				}
+			}
+		}, 0, ticksPerSecond); //(20 ticks = 1 second)
 	}
 	
 	//Count down
@@ -26,9 +46,9 @@ public class ScheduleManager {
 		taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
 			@Override
 			public void run() {
-				chatManager.colorCountDown(timeCount);
-				timeCount--;
-				if (timeCount <= 0) {
+				chatManager.colorCountDown(timeCountDownCount);
+				timeCountDownCount--;
+				if (timeCountDownCount <= 0) {
 					
 					//Cancel this Repeating Task.
 					Bukkit.getScheduler().cancelTask(taskID);
@@ -36,9 +56,9 @@ public class ScheduleManager {
 			}
 		}, 0, ticksPerSecond); //(20 ticks = 1 second)
 	}
-
+	
 	public void setTimeCount(int timeCount) {
-		this.timeCount = timeCount;
+		this.timeCountDownCount = timeCount;
 	}
 
 }

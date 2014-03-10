@@ -18,6 +18,9 @@ public class GameManager {
 	
 	//Lets start the core logic of our game
 	public void startGameManager() {
+		
+		scheduleManager.gameManagerTask();
+		
 		if (gameActive == false) {
 			startLobby();
 		} else {
@@ -33,9 +36,6 @@ public class GameManager {
 		//Load lobby
 		//Load lobby world
 		//wait for players
-		//start count down if enough players join
-
-		scheduleManager.startCountDown(45);
 		//set gameActive True
 	}
 	
@@ -47,7 +47,11 @@ public class GameManager {
 		//game ends
 		//set gameActive false
 		gameCount++; //Increment the amount of games played.
-
+	}
+	
+	//Start Lobby count down
+	public void startLobbyCountDown() {
+		scheduleManager.startCountDown(45);
 	}
 	
 	//Getters and Setters

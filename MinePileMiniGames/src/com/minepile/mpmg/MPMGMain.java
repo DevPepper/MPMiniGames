@@ -8,9 +8,11 @@ import com.minepile.mpmg.util.ScheduleManager;
 
 public class MPMGMain extends JavaPlugin {
 	
-	//Server Variables
+	//Global Server Variables
 	private static String pluginVersion = "Pre-Alpha 0.1.3";
 	private static boolean debugMessages = true;
+	private static int minPlayers = 8;
+	private static int maxPlayers = 16;
 	
 	//Load objects
 	public static MPMGMain plugin;
@@ -30,12 +32,19 @@ public class MPMGMain extends JavaPlugin {
 	
 	public void onDisable() {}
 	
-	//Used in Chat Manager
+	//Getters used for global settings
 	public static String getPluginVersion() {
 		return pluginVersion;
 	}
 	public static boolean isDebugMessages() {
 		return debugMessages;
 	}
+	public static int getMinPlayers() {
+		return minPlayers;
+	}
+	public static int getMaxPlayers() {
+		return maxPlayers;
+	}
+
 	
 }
