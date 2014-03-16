@@ -38,8 +38,6 @@ public class GameManager {
 	private int gameStartCountDown = 20; 	//Time before the game starts, and player is unfrozen.		
 	private int gameStatsDelay = 7;			//Time after game ends to show statistics, before returning to lobby.
 	
-	private int gameCountDown = 20;	//debug
-	
 	//Variable counters for tracking loops.
 	private int globalTickCount = globalTicks;
 	private static int lobbyCountDownCount = lobbyCountDown;
@@ -47,12 +45,10 @@ public class GameManager {
 	private static boolean gameIsSetup = false;
 	private static boolean countDownOver = false;
 	private boolean varReset = false;
-	@SuppressWarnings("unused")
-	private int gameCountDownCount = gameCountDown;
 	private int gameStartCountDownCount = gameStartCountDown;
 	@SuppressWarnings("unused")
 	private int gameStatsDelayCount = gameStatsDelay;
-	private int currentGame = 3;
+	private int currentGame = 3; 
 	private int lastGame = 0;
 	
 	//Load the constructor.
@@ -295,7 +291,6 @@ public class GameManager {
 		gameIsSetup = false;
 		varReset = false;
 		countDownOver = false;
-		gameCountDownCount = gameCountDown;
 		gameStartCountDownCount = gameStartCountDown;
 		gameStatsDelayCount = gameStatsDelay;
 		TeamManager.clearTeams(); //clears teams
