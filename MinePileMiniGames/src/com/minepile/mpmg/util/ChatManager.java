@@ -2,6 +2,8 @@ package com.minepile.mpmg.util;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Sound;
+import org.bukkit.entity.Player;
 
 import com.minepile.mpmg.MPMGMain;
 
@@ -17,13 +19,11 @@ public class ChatManager {
 		return ChatColor.RED + "" + ChatColor.BOLD + playerName + " disconnected!";
 	}
 	
-	//Load Tips to be displayed to the user about the
-	//game mode they are playing.
-	public void loadTips() {}
-	
 	//Displays a random tip about the current miniGame
 	public void randomTip(String randomTip) {
-		Bukkit.broadcastMessage(ChatColor.YELLOW + "" + ChatColor.BOLD + " TIP >> " + randomTip);
+		for(Player player : Bukkit.getOnlinePlayers()) {
+			player.sendMessage(ChatColor.YELLOW + "" + ChatColor.BOLD + " TIP >> " + randomTip);
+		}
 	}
 	
 	//Show Debug Message
@@ -54,18 +54,27 @@ public class ChatManager {
 	
 	//Color Count down
 	public void colorCountDown (int timeCount) {
-		String timeCountString = Integer.toString(timeCount);		
-		if (timeCount == 60 ||timeCount == 45 || timeCount == 30 || timeCount == 15) { //Show countdown at 60, 45, 30, and 15 seconds.
-			Bukkit.broadcastMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "Countdown: " + timeCountString + " seconds left!");
-		} else if (timeCount <= 10 && timeCount >= 3) { //Show bold green countdown for ever second between 10 and 3 seconds.
-			Bukkit.broadcastMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "Countdown: " + timeCountString + " seconds left!");
-		} else if (timeCount == 2) { //Show bold yellow countdown for 2 seconds left.
-			Bukkit.broadcastMessage(ChatColor.YELLOW + "" + ChatColor.BOLD + "Countdown: " + timeCountString + " seconds left!");
-		} else if (timeCount == 1) { //Show bold red countDown for 1 second left.
-			Bukkit.broadcastMessage(ChatColor.RED + "" + ChatColor.BOLD + "Countdown: " + timeCountString + " second left!");
-		} else {
-			//Want to see all the numbers? Uncomment the line below
-			//debugMessage(timeCountString);
+		for(Player player : Bukkit.getOnlinePlayers()) {
+			String timeCountString = Integer.toString(timeCount);		
+			//Show countdown at 60, 45, 30, 20, and 15 seconds.
+			if (timeCount == 30 || timeCount == 15) {
+				player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "Countdown: " + timeCountString + " seconds left!");
+			} else if (timeCount <= 10 && timeCount >= 3) { //Show bold green countdown for ever second between 10 and 3 seconds.
+				player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "Countdown: " + timeCountString + " seconds left!");
+				//play a sound
+			    player.playSound(player.getLocation(), Sound.NOTE_PLING, 1, 7);
+			} else if (timeCount == 2) { //Show bold yellow countdown for 2 seconds left.
+				player.sendMessage(ChatColor.YELLOW + "" + ChatColor.BOLD + "Countdown: " + timeCountString + " seconds left!");
+				//play a sound
+			    player.playSound(player.getLocation(), Sound.NOTE_PLING, 1, 7);
+			} else if (timeCount == 1) { //Show bold red countDown for 1 second left.
+				player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "Countdown: " + timeCountString + " second left!");
+				//play a sound
+			    player.playSound(player.getLocation(), Sound.NOTE_PIANO, 1, 7);
+			} else {
+				//Want to see all the numbers? Uncomment the line below
+				//debugMessage(timeCountString);
+			}
 		}
 	}
 }

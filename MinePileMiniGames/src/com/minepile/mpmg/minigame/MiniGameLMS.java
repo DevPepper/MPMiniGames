@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 import com.minepile.mpmg.util.TeamManager;
 
-public class MiniGameCTF extends MiniGame {
+public class MiniGameLMS extends MiniGame {
 	
 	//Load objects.
 	
@@ -19,24 +19,24 @@ public class MiniGameCTF extends MiniGame {
 	//private String[] teams = {"Red", "Blue"};
 	
 	//Variables to give user info
-	private String miniGameName = "Capture the flag!";
-	private String miniGameDescription = "Who ever gets the most flags win!";
+	private String miniGameName = "Last man standing!";
+	private String miniGameDescription = "Who ever is the last alive wins!";
 	private String worldAuthor = "unenergizer";
 	//private List<Location> redSpawns = {world, 0.5, 84, 0.5};
 	
 	//Game specific variables.
 	
 	//Define constructor instructions
-	public MiniGameCTF() {}
+	public MiniGameLMS() {}
 	
 	@Override
 	public void loadMiniGame() {
 		if (isMapLoaded() == false) {
 			setMapLoaded(true);
 			//Load next world
-			WorldCreator worldCreator = new WorldCreator("CTF");
+			WorldCreator worldCreator = new WorldCreator("LMS");
 			worldCreator.createWorld();
-			World world = Bukkit.getWorld("CTF");
+			World world = Bukkit.getWorld("LMS");
 			world.setPVP(true);
 			world.setStorm(false);
 			world.setMonsterSpawnLimit(0);
@@ -47,16 +47,16 @@ public class MiniGameCTF extends MiniGame {
 				//chatManager.debugMessage(TeamManager.getTeamHashMap().toString());
 				if(TeamManager.getPlayerTeam(players) == "red"){
 					//redteam spawn
-					Location teleportloc = new Location(world, 0.5, 80, 29.5);
+					Location teleportloc = new Location(world, 0.5, 84, 29.5);
 					players.teleport(teleportloc); //Teleport player
 					players.setPlayerTime(6000, false); //Set world time
 				} else if (TeamManager.getPlayerTeam(players) == "blue") {
 					//blue team spawn
-					Location teleportloc = new Location(world, 0.5, 80, -28.5);
+					Location teleportloc = new Location(world, 0.5, 84, -28.5);
 					players.teleport(teleportloc); //Teleport player
 					players.setPlayerTime(6000, false); //Set world time
 				} else {
-					Location teleportloc = new Location(world, 0.5, 80, 0.5);
+					Location teleportloc = new Location(world, 0.5, 84, 0.5);
 					players.teleport(teleportloc); //Teleport player
 					players.setPlayerTime(6000, false); //Set world time
 				}

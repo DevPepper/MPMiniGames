@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 import com.minepile.mpmg.util.TeamManager;
 
-public class MiniGameCTF extends MiniGame {
+public class MiniGameTDM extends MiniGame {
 	
 	//Load objects.
 	
@@ -19,24 +19,26 @@ public class MiniGameCTF extends MiniGame {
 	//private String[] teams = {"Red", "Blue"};
 	
 	//Variables to give user info
-	private String miniGameName = "Capture the flag!";
-	private String miniGameDescription = "Who ever gets the most flags win!";
+	private String miniGameName = "Team Death Match!";
+	private String miniGameDescription = "Team with the most kills win!";
 	private String worldAuthor = "unenergizer";
 	//private List<Location> redSpawns = {world, 0.5, 84, 0.5};
 	
 	//Game specific variables.
+	private static int redTeamKills = 0;
+	private static int blueTeamKills = 0;
 	
 	//Define constructor instructions
-	public MiniGameCTF() {}
+	public MiniGameTDM() {}
 	
 	@Override
 	public void loadMiniGame() {
 		if (isMapLoaded() == false) {
 			setMapLoaded(true);
 			//Load next world
-			WorldCreator worldCreator = new WorldCreator("CTF");
+			WorldCreator worldCreator = new WorldCreator("TDM");
 			worldCreator.createWorld();
-			World world = Bukkit.getWorld("CTF");
+			World world = Bukkit.getWorld("TDM");
 			world.setPVP(true);
 			world.setStorm(false);
 			world.setMonsterSpawnLimit(0);
@@ -77,5 +79,29 @@ public class MiniGameCTF extends MiniGame {
 	public void startGamelogic() {
 
 		//chatManager.debugMessage("starting game logic");
+	}
+	
+	public static void updateScore(Player player) {
+		if (TeamManager.getPlayerTeam(player.getKiller()) == "red") {
+			redTeamKills = redTeamKills + 1;
+		} else {
+			blueTeamKills = blueTeamKills + 1;
+		}
+	}
+	
+	public static int getRedTeamKills() {
+		return redTeamKills;
+	}
+
+	public static void setRedTeamKills(int redTeamKills) {
+		MiniGameTDM.redTeamKills = redTeamKills;
+	}
+
+	public static int getBlueTeamKills() {
+		return blueTeamKills;
+	}
+
+	public static void setBlueTeamKills(int blueTeamKills) {
+		MiniGameTDM.blueTeamKills = blueTeamKills;
 	}
 }

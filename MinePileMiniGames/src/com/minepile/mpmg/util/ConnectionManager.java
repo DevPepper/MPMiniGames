@@ -1,26 +1,10 @@
 package com.minepile.mpmg.util;
 
-import java.util.ArrayList;
-
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 public class ConnectionManager {
-	
-	private ArrayList<String> playerList = null;
-	
-	//Get playerList
-	public ArrayList<String> getPlayerList() {
-		return this.playerList;
-	}
-	//Updates (sets) the ArrayList
-	public void updatePlayerList() {
-		//Get array of players online
-		for(Player allPlayers : Bukkit.getServer().getOnlinePlayers()) {
-			playerList.add(allPlayers.getName());
-		}
-	}
-	
+
 	//Remove disconnected player from []playerList
 	public void removePlayer() {
 		//remove player from the playerList
@@ -42,6 +26,11 @@ public class ConnectionManager {
 			}
 		}
 		return "No players online.";
+	}
+	
+	//Get players online
+	public Player[] getOnlinePlayers() {
+		return Bukkit.getServer().getOnlinePlayers();
 	}
 	
 }
